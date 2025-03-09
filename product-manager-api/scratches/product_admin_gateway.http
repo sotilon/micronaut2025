@@ -1,0 +1,13 @@
+# get all products
+GET http://localhost:8000/api/v1/products
+
+#update product by id
+PUT http://localhost:8000/admin/api/v1/update
+accept: application/json
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwczovL3F1YXJrdXMuaW8vaXNzdWVyIiwidXBuIjoiQURNSU4iLCJncm91cHMiOlsiQ1VTVE9NRVIiLCJNQU5BR0VSIl0sImlhdCI6MTc0MDE0NjY2MywiZXhwIjoxNzQwMTUwMjYzLCJqdGkiOiI2N2U3MDYzNy01MDI0LTQ5NGItYWYzMi1iNDgxYTAwODdiZDYifQ.BSvhTYFFELdpgT5X7_sJDkJ-3tpQlNYbqHkWzELd2L59pMO5QWF7NPn7814_vdqTok4mUbymMVYm33Os6_SV0rxoNOhSJLC09jqcEtfX7yU5SZ6BkSqr7vYD_hkEW7wgl63x9wwj22W1FiILLhk59XZj5sK5OB1aJ9_7REymXBmmKbZ9h4VWG9VHBJcRiXdOkQGcfa7O8pK7O1edrqdTSQ-30nyrR65S2HyzjknEVSQjZ-FhHiZDtrPbCxduyd6Shpwi27VSnaXy0OgLALFYrwJtgsBg3LLhG8pFljLS2okxSr6x3VxmwAt6Lsgrlyx1xp9o-yqlKsfCrByzUD5bww
+  {
+    "id": 1,
+    "code": "02",
+    "name": "Targeta de credito personal",
+    "description": "Credito personal actualizado "
+  }

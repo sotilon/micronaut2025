@@ -1,0 +1,31 @@
+# create new customer ACC54123
+POST http://localhost:8082/api/v1/admin/customer
+Content-Type:application/json
+{
+  "accountNumber": "ACC54123",
+  "address": "789 Oak St",
+  "code": "CUST004",
+  "names": "Daton Johnson",
+  "phone": "555-9876",
+  "products": [
+    {
+      "productId": 104
+    }
+  ]
+}
+
+
+# create new product code 0080
+POST http://localhost:8081/api/v1/admin/product
+Content-Type:application/json
+{
+  "code": "0080",
+  "name": "CAJA AREQUIPA",
+  "description": "Visa Light "
+}
+
+# delete la last product created
+DELETE http://localhost:8082/api/v1/admin/customer/18
+
+#test found
+GET http://localhost:8081/api/v1/product/6

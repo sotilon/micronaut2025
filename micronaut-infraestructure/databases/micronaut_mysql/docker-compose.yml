@@ -1,0 +1,24 @@
+services:
+  mariadb:
+    image: mariadb:latest
+    container_name: micronaut_mariadb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 12345678
+      MYSQL_DATABASE: micronaut_mysql_product
+      MYSQL_USER: root
+      MYSQL_PASSWORD: 12345678
+    ports:
+      - "3306:3306"
+    networks:
+      - micronaut_net
+    volumes:
+      - micronaut_mariadb_data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+networks:
+  micronaut_net:
+    external: true
+
+volumes:
+  micronaut_mariadb_data:

@@ -1,0 +1,6 @@
+docker logs micronaut_mariadb
+
+docker exec -it micronaut_mariadb mariadb -u root -p
+
+#Verifica que la imagen se descargó correctamente
+docker images | grep mariadb

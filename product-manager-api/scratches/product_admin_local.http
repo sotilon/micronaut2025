@@ -1,0 +1,22 @@
+# create new product code 0070
+POST http://localhost:8081/api/v1/admin/product
+Content-Type:application/json
+{
+  "code": "0070",
+  "name": "Los Andes",
+  "description": "Visa Signature Latam Pass"
+}
+# create new product code 0080
+POST http://localhost:8081/api/v1/admin/product
+Content-Type:application/json
+{
+  "code": "0080",
+  "name": "CAJA AREQUIPA",
+  "description": "Visa Light "
+}
+
+# delete la last product created
+DELETE http://localhost:8081/api/v1/admin/product/6
+
+#test found
+GET http://localhost:8081/api/v1/product/6

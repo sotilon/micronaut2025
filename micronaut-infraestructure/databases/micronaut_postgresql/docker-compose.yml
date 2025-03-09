@@ -1,0 +1,23 @@
+services:
+  postgres:
+    image: postgres:14-alpine
+    container_name: postgres_micronaut
+    restart: always
+    environment:
+      POSTGRES_USER: sa
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: micronaut_postgres_customer
+    ports:
+      - "5432:5432"
+    networks:
+      - micronaut_net
+    volumes:
+      - micronaut_postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+networks:
+  micronaut_net:
+    external: true
+
+volumes:
+  micronaut_postgres_data:

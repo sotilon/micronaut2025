@@ -1,0 +1,19 @@
+services:
+  customer-app:
+    image: customer-manager-api:latest
+    container_name: customer-manager-api
+    environment:
+      - POSTGRES_HOST=postgres_micronaut
+      - POSTGRES_USER=sa
+      - POSTGRES_PASSWORD=admin
+      - CONSUL_HOST=micronaut-consul
+      - CONSUL_PORT=8500
+      - SERVICE_ADDRESS_NAME=customer-manager-api
+    ports:
+      - "8082:8082"
+    networks:
+      - micronaut_net
+
+networks:
+  micronaut_net:
+    external: true

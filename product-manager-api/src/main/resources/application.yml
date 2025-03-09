@@ -1,0 +1,38 @@
+micronaut:
+  application:
+    name: product-manager-api
+  server:
+    port: 8081
+datasources:
+  default:
+    url: jdbc:mariadb://${MYSQL_HOST:localhost}:3306/micronaut_mysql_product
+    driverClassName: org.mariadb.jdbc.Driver
+    username: root
+    password: 12345678
+    dialect: MYSQL
+    maximum-pool-size: 10
+hibernate:
+  dialect: org.hibernate.dialect.MariaDBDialect
+
+jpa:
+  default:
+    properties:
+      hibernate:
+        hbm2ddl.auto: none
+        show_sql: true
+        physical_naming_strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl # para tablas upper
+    entity-scan:
+      packages: com.sotil.micronaut.demo.model
+    packages-to-scan: com.sotil.micronaut.demo.model
+
+logger:
+  levels:
+    io.micronaut.data: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+
+consul:
+  client:
+    defaultZone: http://${CONSUL_HOST:localhost}:${CONSUL_PORT:8500}
+    registration:
+      enabled: true

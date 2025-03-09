@@ -1,0 +1,3 @@
+./gradlew clean build
+
+docker build -f docker/Dockerfile -t micronaut/customer-manager-api .

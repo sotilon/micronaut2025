@@ -1,0 +1,19 @@
+services:
+  customer-app:
+    image: product-manager-api:latest
+    container_name: product-manager-api
+    environment:
+      - MYSQL_HOST=micronaut_mariadb
+      - MYSQL_USER=sa
+      - MYSQL_PASSWORD=admin
+      - CONSUL_HOST=micronaut-consul
+      - CONSUL_PORT=8500
+      - SERVICE_ADDRESS_NAME=product-manager-api
+    ports:
+      - "8081:8081"
+    networks:
+      - micronaut_net
+
+networks:
+  micronaut_net:
+    external: true

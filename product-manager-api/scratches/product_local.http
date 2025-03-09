@@ -1,0 +1,6 @@
+#find all products
+GET http://localhost:8081/api/v1/product/list
+
+#find product by id
+GET http://localhost:8081/api/v1/product/5
+

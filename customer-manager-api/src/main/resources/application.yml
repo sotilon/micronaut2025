@@ -1,0 +1,47 @@
+micronaut:
+  application:
+    name: customer-manager-api
+  server:
+    port: 8082
+  http:
+    client:
+      enabled: false
+
+datasources:
+  default:
+    url: jdbc:postgresql://${POSTGRES_HOST:localhost}:5432/micronaut_postgres_customer
+    driverClassName: org.postgresql.Driver
+    username: sa
+    password: admin
+    dialect: POSTGRES
+
+
+jpa:
+  default:
+    properties:
+      hibernate:
+        hbm2ddl.auto: none
+        show_sql: true
+        physical_naming_strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl # para tablas upper
+    entity-scan:
+      packages: com.sotil.micronaut.demo.model
+    packages-to-scan: com.sotil.micronaut.demo.model
+
+logger:
+  levels:
+    io.micronaut.data: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+
+consul:
+  client:
+    defaultZone: http://${CONSUL_HOST:localhost}:${CONSUL_PORT:8500}
+    registration:
+      enabled: true
+
+external:
+  microservices:
+    product_service:
+      name: product-manager-api
+    product_backup_service:
+      name: product-backup-api
